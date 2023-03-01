@@ -20,6 +20,14 @@
             $this->setBio($data['bio']);
             $this->setToken($data['token']);
         }
+
+        public function generate_token(){
+            return bin2hex(random_bytes(50));
+        }
+
+        public function generate_passowrd($password){
+            return password_hash($password, PASSWORD_DEFAULT);
+        }
         
         public function getId() {
             return $this->id;

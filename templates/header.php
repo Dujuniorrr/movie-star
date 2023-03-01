@@ -33,20 +33,20 @@
         <nav class="navbar">
             <div class="container-fluid">
                 <div >
-                <a href="<?= $BASE_URL ?>" class="d-flex align-items-baseline text-decoration-none text-light">
+                <a href="<?= $BASE_URL ?>" class="d-flex col-3 align-items-baseline text-decoration-none text-light">
                     <img src="<?= $BASE_URL ?>img/logo.svg" width="50px" alt="">
                     <h1 class="ms-2"><Strong>MovieStar</Strong></h1>
                 </a>
                 </div>
-                <div class="d-flex d-md-none m-3 m-sm-0">
-                    <a href="<?= $BASE_URL ?>auth.php" class="text-decoration-none text-light">Entrar/Cadastrar</a>
+                <div class="d-flex d-lg-none m-3 m-sm-0">
+                    <a href="<?= $BASE_URL ?>auth.php" class="text-decoration-none text-light">Entrar/Cadastrar </a>
                   </div>
-              <form class="d-flex col-12 col-md-6 col-lg-7" role="search">
+              <form class="d-flex col-12 col-sm-12 col-lg-4 col-xl-5" role="search">
                 <input class="form-control rounded-0 rounded-start" type="search" placeholder="Buscar filmes" aria-label="Search">
                 <button class="btn btn-light rounded-0 rounded-end" type="submit"><i class="fa fa-search" aria-hidden="true"></i>  </button>
               </form>
-              <div class="d-none d-sm-none d-md-block">
-                <a href="<?= $BASE_URL ?>auth.php" class="text-decoration-none text-light">Entrar/Cadastrar</a>
+              <div class="d-none d-sm-none d-lg-block">
+                <a href="<?= $BASE_URL ?>auth.php" class="text-decoration-none text-light"> Entrar/Cadastrar </a>
               </div>
             </div>
           </nav>

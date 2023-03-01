@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="confirm_password">Confirme sua senha</label>
-                    <input required type="confirm_password" name="confirm_password" class="form-control" id="passwordw" placeholder="Digite sua senha">
+                    <input required type="password" name="confirm_password" class="form-control" id="passwordw" placeholder="Digite sua senha">
                 </div>
                 <div class="col-12 d-flex justify-content-center">
                     <button type="submit" class="btn btn-warning col-12">Cadastrar-se</button>

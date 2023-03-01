@@ -5,15 +5,12 @@ body {
     padding: 0;
     margin: 0;
 }
-
 nav {
     background-color: rgb(15, 15, 14);
 }
-
 main {
     min-height: 65vh;
 }
-
 footer {
     bottom: 0;
     color: #FFF;
