@@ -10,6 +10,16 @@
         private $bio;
         private $token;
 
+        public function build_user($data){
+            $this->setId($data['id']);
+            $this->setName($data['name']);
+            $this->setLast_name($data['last_name']);
+            $this->setEmail($data['email']);
+            $this->setPassword($data['password']);
+            $this->setImage($data['image']);
+            $this->setBio($data['bio']);
+            $this->setToken($data['token']);
+        }
         
         public function getId() {
             return $this->id;
@@ -92,6 +102,15 @@
     }
 
     interface UserDAOInterface{
-        
+        public function create_user(User$user, $auth_user = false);
+        public function update_user(User $user);
+        public function verify_token($protected = false);
+        public function set_token_to_session($token, $redirect = true);
+        public function authenticate_user($email, $password);
+        public function find_by_email($email);
+        public function find_by_id($id);
+        public function find_by_token($token);
+        public function change_password(User $user);
+
     }
 ?>

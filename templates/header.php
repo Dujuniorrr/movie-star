@@ -1,9 +1,12 @@
 <?php
     require_once("globals.php");
     require_once("connection.php");
+    require_once("process_auth.php");
 
-    $flash_message = [];
-    
+    $flash_message = $message->get_message();
+    if(!empty($flash_message)){
+       $message->clear_message();
+    }
 ?> 
 
 <!DOCTYPE html>
@@ -51,7 +54,7 @@
     <?php
       if(!empty($flash_message['msg'])):
     ?>
-      <div class="alert <?= $flash_message['type']; ?> col-6 m-auto mb-3 text-center" role="alert">
+      <div class="alert <?= $flash_message['type']; ?> col-6 m-auto mb-3 mt-3 text-center" role="alert">
            <?= $flash_message['msg']; ?>
       </div>
     <?php

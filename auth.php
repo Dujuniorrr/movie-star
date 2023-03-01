@@ -26,7 +26,7 @@
             <div class="border col-10 mb-3 text-center border-top-0 border-start-0 border-end-0  border-bottom border-warning m-auto">
                 <h1> Criar Conta </h1>
             </div>
-            <form>
+            <form action="<?= $BASE_URL ?>process_auth.php" method="POST" >
                 <input type="hidden" name="type" value="register">
                 <div class="form-group mb-3">
                     <label for="email">Email</label>
@@ -45,8 +45,8 @@
                     <input required type="password" name="password" class="form-control" id="password" placeholder="Digite sua senha">
                 </div>
                 <div class="form-group mb-3">
-                    <label for="password2">Confirme sua senha</label>
-                    <input required type="password" name="password2" class="form-control" id="passwordw" placeholder="Digite sua senha">
+                    <label for="confirm_password">Confirme sua senha</label>
+                    <input required type="confirm_password" name="confirm_password" class="form-control" id="passwordw" placeholder="Digite sua senha">
                 </div>
                 <div class="col-12 d-flex justify-content-center">
                     <button type="submit" class="btn btn-warning col-12">Cadastrar-se</button>
