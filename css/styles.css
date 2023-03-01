@@ -1,0 +1,24 @@
+html, body {
+    min-height: 100%;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    background-color: rgb(15, 15, 14);
+}
+
+main {
+    min-height: 65vh;
+}
+
+footer {
+    bottom: 0;
+    color: #FFF;
+    width: 100%;
+    height: 100px;    
+    text-align: center;
+    line-height: 100px;
+}
