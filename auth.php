@@ -7,11 +7,11 @@
             <div class="border  mb-3 col-6 text-center border-top-0 border-start-0 border-end-0  border-bottom border-warning m-auto">
                 <h1 >Entrar</h1>
             </div>
-            <form>
+            <form action="process_auth.php" method="POST">
                 <input type="hidden" name="type" value="login">
                 <div class="form-group mb-3">
                     <label for="email">Email</label>
-                    <input required type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite o seu email">
+                    <input  type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite o seu email">
                 </div>
                 <div class="form-group mb-3">
                     <label for="password">Senha</label>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="confirm_password">Confirme sua senha</label>
-                    <input required type="password" name="confirm_password" class="form-control" id="passwordw" placeholder="Digite sua senha">
+                    <input required type="password" name="confirm_password" class="form-control" id="passwordw" placeholder="Confirme a senha">
                 </div>
                 <div class="col-12 d-flex justify-content-center">
                     <button type="submit" class="btn btn-warning col-12">Cadastrar-se</button>

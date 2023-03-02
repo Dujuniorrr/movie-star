@@ -18,7 +18,9 @@
         $confirm_password = filter_input(INPUT_POST, "confirm_password");
 
         if($name && $last_name && $email && $password){
+
             if($password === $confirm_password){
+
                 if($user_dao->find_by_email($email) === false){
                     $user = new User();
                     $user->setToken($user->generate_token());
@@ -31,6 +33,7 @@
                 else{
                     $message->set_message("Usuário já cadastrado, tente outro e-mail.", "alert-danger", "back");
                 }
+
             }   
             else{
                 $message->set_message("A confirmação de senha está incorreta.", "alert-danger", "back");
@@ -41,7 +44,22 @@
         }
     }   
     else if($type === "login"){
+        $email = filter_input(INPUT_POST, "email");
+        $password = filter_input(INPUT_POST, "password");
 
+        if($email && $password){
+            
+            if($user_dao->authenticate_user($email, $password)){
+                $message->set_message("Seja bem vindo!", "alert-success", "index.php");
+            }
+            else{
+                $message->set_message("Usuário e/ou senha inválidos.", "alert-danger", "back");
+            }
+
+        }
+        else{
+            $message->set_message("Por favor, preencha todos os campos.", "alert-danger", "back");
+        }
     }
 
 ?>

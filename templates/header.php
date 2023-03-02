@@ -2,11 +2,14 @@
     require_once("globals.php");
     require_once("connection.php");
     require_once("process_auth.php");
+    require_once("dao/UserDAO.php");
 
     $flash_message = $message->get_message();
     if(!empty($flash_message)){
        $message->clear_message();
     }
+
+    $user = $user_dao->verify_token();
 ?> 
 
 <!DOCTYPE html>
@@ -38,15 +41,29 @@
                     <h1 class="ms-2"><Strong>MovieStar</Strong></h1>
                 </a>
                 </div>
-                <div class="d-flex d-lg-none m-3 m-sm-0">
-                    <a href="<?= $BASE_URL ?>auth.php" class="text-decoration-none text-light">Entrar/Cadastrar </a>
-                  </div>
+                <div class="d-flex d-sm-inline row d-lg-none m-3 m-sm-2 m-md-0">
+                  <?php if($user): ?>
+                    <a href="<?= $BASE_URL ?>add_movie.php" class="text-decoration-none text-light m-2"> <i class="fa fa-plus-square" aria-hidden="true"></i> Incluir Filme </a>
+                    <a href="<?= $BASE_URL ?>dashboard.php" class="text-decoration-none text-light m-2"> Meus Filmes </a>
+                    <a href="<?= $BASE_URL ?>edit_profile.php" class="text-decoration-none text-light m-2"> <strong><?= $user->getName() ?></strong> </a>
+                    <a href="<?= $BASE_URL ?>logout.php" class="text-decoration-none text-light m-2"> Sair </a>
+                  <?php else: ?>
+                    <a href="<?= $BASE_URL ?>auth.php" class="text-decoration-none text-light m-2">Entrar/Cadastrar </a>
+                  <?php endif; ?>
+                </div>
               <form class="d-flex col-12 col-sm-12 col-lg-4 col-xl-5" role="search">
                 <input class="form-control rounded-0 rounded-start" type="search" placeholder="Buscar filmes" aria-label="Search">
                 <button class="btn btn-light rounded-0 rounded-end" type="submit"><i class="fa fa-search" aria-hidden="true"></i>  </button>
               </form>
               <div class="d-none d-sm-none d-lg-block">
-                <a href="<?= $BASE_URL ?>auth.php" class="text-decoration-none text-light"> Entrar/Cadastrar </a>
+                  <?php if($user): ?>
+                    <a href="<?= $BASE_URL ?>add_movie.php" class="text-decoration-none text-light m-2"> <i class="fa fa-plus-square" aria-hidden="true"></i> Incluir Filme </a>
+                    <a href="<?= $BASE_URL ?>dashboard.php" class="text-decoration-none text-light m-2"> Meus Filmes </a>
+                    <a href="<?= $BASE_URL ?>edit_profile.php" class="text-decoration-none text-light m-2"> <strong><?= $user->getName() ?></strong></a>
+                    <a href="<?= $BASE_URL ?>logout.php" class="text-decoration-none text-light m-2"> Sair </a> 
+                  <?php else: ?>
+                    <a href="<?= $BASE_URL ?>auth.php" class="text-decoration-none text-light m-2">Entrar/Cadastrar </a>
+                  <?php endif; ?>
               </div>
             </div>
           </nav>
