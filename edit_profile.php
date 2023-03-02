@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="bio">Sobre você</label>
-                        <textarea name="bio" placeholder="Conte quem você é, o que faz, onde trabalha, seus gostos pessoais..." class="form-control" style="min-height: 75px; max-height: 75px; height: 75;"><?= $user->getBio() ?></textarea>
+                        <textarea name="bio" placeholder="Conte quem você é, o que faz, onde trabalha, seus gostos pessoais..." class="form-control" style="min-height: 100px; max-height: 100px; height: 100;"><?= $user->getBio() ?></textarea>
                     </div>
                    <div class="d-block d-md-none text-center">
                         <button type="submit" class="btn btn-warning">Alterar</button>

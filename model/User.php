@@ -117,6 +117,7 @@
     }
 
     interface UserDAOInterface{
+        
         public function create_user(User$user, $auth_user = false);
         public function update_user(User $user, $redirect = true);
         public function verify_token($protected = false);

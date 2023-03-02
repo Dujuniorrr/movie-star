@@ -49,7 +49,6 @@
         if($password && $confirm_password){
             if($confirm_password == $password){
                 $user = $user_dao->verify_token();
-                $user->setId($id);
                 $user->setPassword($user->generate_passowrd($password));
                 $user_dao->change_password($user);
             }
