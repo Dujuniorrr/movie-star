@@ -34,7 +34,22 @@
         public function update_movie(User $user){}
         public function delete_movie ($id){}
         public function find_all(){}
-        public function find_by_id($id){}
+        public function find_by_id($id){
+            $stmt = $this->conn->prepare("SELECT * FROM MOVIE WHERE id = :id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            if($stmt->rowCount() > 0){
+                $data = $stmt->fetch();
+                $user_dao = new UserDao($this->conn, $this->url);
+                $user = $user_dao->find_by_id($data['user_id']);
+                $movie = new Movie;
+                $movie->build_movie($data, $user);
+
+                return $movie;
+            }
+            
+            return false;
+        }
         public function find_by_title($title){}
         public function get_latest_movies(){
             $stmt = $this->conn->query("SELECT * FROM MOVIE ORDER BY id DESC");

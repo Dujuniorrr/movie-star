@@ -21,9 +21,9 @@
                     <thead class="table-dark">
                         <tr>
                         <th class="col-2" scope="col">#</th>
-                        <th class="col-4" scope="col">Título</th>
+                        <th class="col-4 col-md-5 col-6" scope="col">Título</th>
                         <th class="col-1" scope="col">Nota</th>
-                        <th class="col-4" scope="col">Opçôes</th>
+                        <th class="col-4 col-md-4 col-lg-3 text-center" scope="col">Opçôes</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,11 +32,11 @@
                         ?>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td class="title-movie"> <a class="text-decoration-none text-light fw-bold" href="<?= $BASE_URL ?>movie.php?id="><?= $movie->getTitle() ?></a></td>
+                                    <td class="title-movie"> <a class="text-decoration-none text-light fw-bold" href="<?= $BASE_URL ?>movie.php?id=<?= $movie->getId() ?>"><?= $movie->getTitle() ?></a></td>
                                     <td><i class="fa fa-star text-warning" aria-hidden="true"></i> 9</td>
-                                    <td>
-                                        <a  href="<?= $BASE_URL ?>edit_movie.php?id=<?= $movie->getId() ?>" class="d-inline-block m-1 m-md-0"><button class="btn btn-primary"> <i class="fa fa-pencil" aria-hidden="true"></i> Editar</button></a>
-                                        <form action="<?= $BASE_URL ?>process_movie.php" class="d-inline-block m-1 m-md-0">
+                                    <td class="text-center">
+                                        <a  href="<?= $BASE_URL ?>edit_movie.php?id=<?= $movie->getId() ?>" class="d-inline-block m-1 m-md-1 m-lg-0"><button class="btn btn-primary"> <i class="fa fa-pencil" aria-hidden="true"></i> Editar</button></a>
+                                        <form action="<?= $BASE_URL ?>process_movie.php" class="d-inline-block m-1 m-md-1 m-lg-0">
                                             <input type="hidden" name="type" value="delete">
                                             <input type="hidden" name="id" value="<?= $movie->getId() ?>">
                                             <a  href="<?= $BASE_URL ?>add_movie.php" ><button class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> Deletar</button></a>

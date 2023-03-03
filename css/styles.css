@@ -4,6 +4,7 @@ html, body {
 body {
     padding: 0;
     margin: 0;
+    min-width: 300px;
 }
 nav {
     background-color: rgb(15, 15, 14);
@@ -67,5 +68,26 @@ footer {
     .movie-card{
         width: 18.500%;
         margin: 0.5em;
+    }
+}
+.container-img-review{
+    background-size: cover;
+    background-position: center;
+    width: 120px;
+    height: 120px;
+}
+
+.container-img-user-movie{
+    background-size: cover;
+    background-position: center;
+    width: 80px;
+    height: 80px;
+}
+@media(max-width: 500px){
+    .container-img-review{
+        background-size: cover;
+        background-position: center;
+        width: 80px;
+        height: 80px;
     }
 }
