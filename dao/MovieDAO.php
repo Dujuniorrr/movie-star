@@ -31,9 +31,29 @@
 
             $this->message->set_message('Filme adicionado com sucesso!', "alert-success", "index.php");
         }
-        public function update_movie(User $user){}
-        public function delete_movie ($id){}
-        public function find_all(){}
+
+        public function update_movie(Movie $movie){
+            $stmt = $this->conn->prepare("UPDATE MOVIE SET title = :title, category = :category, duration = :duration, description = :description, trailer = :trailer, image = :image WHERE id = :id");
+            $stmt->bindValue(":title", $movie->getTitle());
+            $stmt->bindValue(":category", $movie->getCategory());
+            $stmt->bindValue(":description", $movie->getDescription());
+            $stmt->bindValue(":duration", $movie->getDuration());
+            $stmt->bindValue(":trailer", $movie->getTrailer());
+            $stmt->bindValue(":image", $movie->getImage());
+            $stmt->bindValue(":id", $movie->getId());
+            $stmt->execute();
+            
+            $this->message->set_message("Edição realizada com sucesso!", "alert-success", "dashboard.php");
+        }
+
+        public function delete_movie ($id){
+            $stmt = $this->conn->prepare("DELETE FROM MOVIE WHERE id = :id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+
+            $this->message->set_message("Exclusão realizada com sucesso!", "alert-success", "back");
+        }
+
         public function find_by_id($id){
             $stmt = $this->conn->prepare("SELECT * FROM MOVIE WHERE id = :id");
             $stmt->bindParam(":id", $id);
@@ -50,7 +70,9 @@
             
             return false;
         }
+
         public function find_by_title($title){}
+
         public function get_latest_movies(){
             $stmt = $this->conn->query("SELECT * FROM MOVIE ORDER BY id DESC");
             $stmt->execute();
@@ -65,6 +87,7 @@
             }
             return $movies;
         }
+
         public function get_movie_by_categories($category){
             $stmt = $this->conn->prepare("SELECT * FROM MOVIE WHERE category = :category ORDER BY id DESC");
             $stmt->bindParam(":category", $category);
@@ -80,6 +103,7 @@
             }
             return $movies;
         }
+
         public function get_movies_by_user_id($user_id){
             $stmt = $this->conn->prepare("SELECT * FROM MOVIE WHERE USER_id = :user_id ORDER BY id DESC");
             $stmt->bindParam(":user_id", $user_id);
@@ -95,6 +119,7 @@
             }
             return $movies;
         }
+
     }
 
 ?>

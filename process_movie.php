@@ -59,6 +59,49 @@
         }
         
     }
+    else if($type === "delete"){
+        $id = filter_input(INPUT_POST, "id");
+        $movie = $movie_dao->find_by_id($id);
+        if($user->getId() === $movie->getUser()->getId()){
+            $movie_dao->delete_movie($id);
+        }
+        else{
+            $message->set_message("Você não tem permissão para deletar este filme!", "alert-danger", "index.php");
+        }
+    }
+    else if($type === "update"){
+        $movie = $movie_dao->find_by_id(filter_input(INPUT_POST, "id"));
+        $movie->setTitle(filter_input(INPUT_POST, "title"));
+        $movie->setDuration(filter_input(INPUT_POST, "duration"));
+        $movie->setTrailer(filter_input(INPUT_POST, "trailer"));
+        $movie->setDescription(filter_input(INPUT_POST, "description"));
+        $movie->setCategory(filter_input(INPUT_POST, "category"));
+
+        if(isset($_FILES['image']) && ! empty($_FILES['image']['tmp_name'])){
+            $image = $_FILES['image'];
+            $image_type = ["image/png", "image/jpg", "image/jpeg"];
+            $image_type_jpg = ["image/jpg", "image/jpeg"];
+
+            if(in_array($image, $image_type)){
+               if(in_array($image, $image_type_jpg)){
+                    $file_image = imagecreatefromjpeg($image);
+               }
+               else{
+                    $file_image = imagecreatefrompng($image);
+               }
+
+               $image_name = $movie->image_generate_name();
+               imagejpeg($image_file, "./img/movies/" . $image_name, 100);
+               $movie->setImage($image_name);
+            }
+            else{
+                $message->set_message("Tipo inválido de imagem, insira uma imagem png, jpg ou jpeg.", "alert-danger", "back");
+                exit;
+            }
+        }
+
+        $movie_dao->update_movie($movie);
+    }
     else{
         $message->set_message("Informações inválidas!", "alert-danger", "index.php");
     }

@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                        <div class="img-movie-container rounded-top" style="background-image: url('img/movies/<?= $movie->getImage() ?>');" >
+                        <div class="img-movie-container rounded-2" style="background-image: url('img/movies/<?= $movie->getImage() ?>');" >
                         </div>
                         <div class="col-12 mt-3 text-center">
                             <div class="align-item-center">Filme adicionado por: </div>

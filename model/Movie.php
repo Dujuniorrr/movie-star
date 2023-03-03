@@ -106,9 +106,8 @@
     interface MovieDAOInterface{
 
         public function create_movie(Movie $movie);
-        public function update_movie(User $user);
+        public function update_movie(Movie $movie);
         public function delete_movie ($id);
-        public function find_all();
         public function find_by_id($id);
         public function find_by_title($title);
         public function get_latest_movies();

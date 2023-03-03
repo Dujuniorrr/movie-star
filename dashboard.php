@@ -35,12 +35,16 @@
                                     <td class="title-movie"> <a class="text-decoration-none text-light fw-bold" href="<?= $BASE_URL ?>movie.php?id=<?= $movie->getId() ?>"><?= $movie->getTitle() ?></a></td>
                                     <td><i class="fa fa-star text-warning" aria-hidden="true"></i> 9</td>
                                     <td class="text-center">
+
                                         <a  href="<?= $BASE_URL ?>edit_movie.php?id=<?= $movie->getId() ?>" class="d-inline-block m-1 m-md-1 m-lg-0"><button class="btn btn-primary"> <i class="fa fa-pencil" aria-hidden="true"></i> Editar</button></a>
-                                        <form action="<?= $BASE_URL ?>process_movie.php" class="d-inline-block m-1 m-md-1 m-lg-0">
+
+                                        <form method="POST" action="<?= $BASE_URL ?>process_movie.php" class="d-inline-block m-1 m-md-1 m-lg-0">
                                             <input type="hidden" name="type" value="delete">
                                             <input type="hidden" name="id" value="<?= $movie->getId() ?>">
-                                            <a  href="<?= $BASE_URL ?>add_movie.php" ><button class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> Deletar</button></a>
+
+                                            <button type="submit" class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> Deletar</button>
                                         </form>
+
                                     </td>
                                 <tr>
                         <?php
