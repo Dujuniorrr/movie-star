@@ -10,7 +10,7 @@
         private $category;
         private User $user;
     
-        public function build_movie($data){
+        public function build_movie($data, $user = null){
             $this->setId($data['id']);
             $this->setTitle($data['title']);
             $this->setDescription($data['description']);
@@ -18,7 +18,7 @@
             $this->setDuration($data['duration']);
             $this->setTrailer($data['trailer']);
             $this->setCategory($data['category']);
-            $this->setUser($data['user']);
+            $this->setUser($user);
         }
         public function image_generate_name(){
             return bin2hex(random_bytes(60)) . ".jpg";
@@ -113,6 +113,6 @@
         public function find_by_title($title);
         public function get_latest_movies();
         public function get_movie_by_categories($category);
-        public function get_movies_by_user_id($id_user);
+        public function get_movies_by_user_id($user_id);
     }
 ?>

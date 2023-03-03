@@ -7,7 +7,7 @@
     require_once("dao/UserDAO.php");
 
     $message = new Message($BASE_URL);
-    $user_dao = new UserDao($conn, $BASE_URL, $message);
+    $user_dao = new UserDao($conn, $BASE_URL);
     $type = filter_input(INPUT_POST, "type");
 
     if($type === "update"){

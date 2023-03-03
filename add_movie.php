@@ -12,7 +12,6 @@
                     </div>
                     <p class="text-secondary text-center">Adicione sua critíca e compartilhe com o mundo!</p>
                     <input type="hidden" name="type" value="create">
-                    <input type="hidden" name="id" value="<?= $user->getId() ?>">
                     <div class="form-group mb-3">
                         <label for="title">Título</label>
                         <input required type="text" name="title" class="form-control" id="title" placeholder="Digite o título do filme">

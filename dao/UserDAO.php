@@ -7,7 +7,7 @@
         public $url;
         public $message;
 
-        public function __construct(PDO $conn, $url, $message) {
+        public function __construct(PDO $conn, $url) {
             $this->conn = $conn;
             $this->url = $url;
             $this->message = new Message( $url);
@@ -99,7 +99,7 @@
         }
         public function find_by_id($id){
             $stmt = $this->conn->prepare("SELECT * FROM USERS WHERE id = :id");
-            $stmt->bindParam(":token", $id);
+            $stmt->bindParam(":id", $id);
             $stmt->execute();
             if($stmt->rowCount() > 0){
                 $data = $stmt->fetch();

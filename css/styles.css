@@ -25,3 +25,47 @@ footer {
     width: 150px;
     height: 150px;
 }
+.img-movie-container{
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 380px;
+    min-height: 300px;
+}
+.btn-rate{
+    background-color: rgb(75, 70, 70);
+}
+.btn-rate:hover{
+    background-color: rgb(34, 32, 32);
+}
+
+@media(max-width: 482px){
+    .movie-card{
+        width: 100%;
+        margin: 0.8em;
+    }
+}
+@media(min-width: 482px){
+    .movie-card{
+        width: 45%;
+        margin: 0.6em;
+    }
+}
+@media(min-width: 768px){
+    .movie-card{
+        width: 31%;
+        margin: 0.5em;
+    }
+}
+@media(min-width: 992px){
+    .movie-card{
+        width: 22%;
+        margin: 0.8em;
+    }
+}
+@media(min-width: 1200px){
+    .movie-card{
+        width: 18.500%;
+        margin: 0.5em;
+    }
+}
