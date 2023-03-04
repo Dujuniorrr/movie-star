@@ -3,6 +3,7 @@
     require_once("connection.php");
     require_once("process_auth.php");
     require_once("dao/UserDAO.php");
+    require_once("dao/ReviewDAO.php");
 
     $flash_message = $message->get_message();
     if(!empty($flash_message)){
@@ -10,6 +11,7 @@
     }
 
     $user = $user_dao->verify_token();
+    $review_dao = new ReviewDAO($conn, $BASE_URL);
 ?> 
 
 <!DOCTYPE html>
@@ -51,8 +53,8 @@
                     <a href="<?= $BASE_URL ?>auth.php" class="text-decoration-none text-light m-2">Entrar/Cadastrar </a>
                   <?php endif; ?>
                 </div>
-              <form class="d-flex col-12 col-sm-12 col-lg-4 col-xl-5" role="search">
-                <input class="form-control rounded-0 rounded-start" type="search" placeholder="Buscar filmes" aria-label="Search">
+              <form class="d-flex col-12 col-sm-12 col-lg-4 col-xl-5" action="search.php" role="search" method="GET">
+                <input required class="form-control rounded-0 rounded-start" type="search" placeholder="Buscar filmes" aria-label="Search" name="search">
                 <button class="btn btn-light rounded-0 rounded-end" type="submit"><i class="fa fa-search" aria-hidden="true"></i>  </button>
               </form>
               <div class="d-none d-sm-none d-lg-block">

@@ -71,7 +71,21 @@
             return false;
         }
 
-        public function find_by_title($title){}
+        public function find_by_title($title){
+            $stmt = $this->conn->prepare("SELECT * FROM MOVIE WHERE title LIKE :title ORDER BY id DESC");
+            $stmt->bindValue(":title",'%'.$title.'%');
+            $stmt->execute();
+            $data = $stmt->fetchAll();
+            $movies = [];
+            $user_dao = new UserDao($this->conn, $this->url);
+            foreach($data as $row){
+                $movie = new Movie;
+                $user = $user_dao->find_by_id($row['user_id']);
+                $movie->build_movie($row, $user);
+                $movies[] = $movie;
+            }
+            return $movies;
+        }
 
         public function get_latest_movies(){
             $stmt = $this->conn->query("SELECT * FROM MOVIE ORDER BY id DESC");

@@ -8,7 +8,7 @@
     </div>
     <div class="mt-2 p-3">
         <div>
-            <i class="fa fa-star text-warning" aria-hidden="true"></i>  9
+            <i class="fa fa-star text-warning" aria-hidden="true"></i>  <?= $review_dao->get_rating($movie->getId()) ?>
         </div>
         <div class="mt-3">
             <a class="text-decoration-none text-light"  href="<?= $BASE_URL ?>movie.php?id=<?= $movie->getId() ?>"> <h5><?= $movie->getTitle() ?></h5></a>

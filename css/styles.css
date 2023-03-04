@@ -91,3 +91,28 @@ footer {
         height: 80px;
     }
 }
+
+@media(min-width: 482px){
+    .row-movies-profile .movie-card{
+        width: 46%;
+        margin: 0.6em;
+    }
+}
+@media(min-width: 768px){
+    .row-movies-profile .movie-card{
+        width: 30.9%;
+        margin: 0.5em;
+    }
+}
+@media(min-width: 992px){
+    .row-movies-profile .movie-card{
+        width: 29.000%;
+        margin: 0.8em;
+    }
+}
+@media(min-width: 1200px){
+    .row-movies-profile .movie-card{
+        width: 22.885%;
+        margin: 0.5em;
+    }
+}
